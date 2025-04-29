@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "PLACEHOLDER_NUMBER",
-    "project_id": "PLACEHOLDER_PROJECT_ID",
-    "storage_bucket": "PLACEHOLDER_STORAGE_BUCKET"
+    "project_number": "${FIREBASE_PROJECT_NUMBER}",
+    "project_id": "${FIREBASE_PROJECT_ID}",
+    "storage_bucket": "${FIREBASE_STORAGE_BUCKET}"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "PLACEHOLDER_APP_ID",
+        "mobilesdk_app_id": "${FIREBASE_MOBILESDK_APP_ID}",
         "android_client_info": {
-          "package_name": "com.UnityTechnologies.com.unity.template.urpblank"
+          "package_name": "${FIREBASE_PACKAGE_NAME}"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "PLACEHOLDER_API_KEY"
+          "current_key": "${FIREBASE_API_KEY}"
         }
       ],
       "services": {
