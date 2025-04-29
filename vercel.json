@@ -2,7 +2,7 @@
   "version": 2,
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!Builds/).*)",
       "destination": "/Builds/index.html"
     }
   ],
@@ -10,22 +10,22 @@
     {
       "source": "/Builds/Build/(.+\\.data\\.br)$",
       "headers": [
-        { "key": "Content-Type",   "value": "application/octet-stream" },
-        { "key": "Content-Encoding", "value": "br" }
+        { "key": "Content-Type",    "value": "application/octet-stream" },
+        { "key": "Content-Encoding","value": "br" }
       ]
     },
     {
       "source": "/Builds/Build/(.+\\.framework\\.js\\.br)$",
       "headers": [
-        { "key": "Content-Type",   "value": "application/javascript" },
-        { "key": "Content-Encoding", "value": "br" }
+        { "key": "Content-Type",    "value": "application/javascript" },
+        { "key": "Content-Encoding","value": "br" }
       ]
     },
     {
       "source": "/Builds/Build/(.+\\.wasm\\.br)$",
       "headers": [
-        { "key": "Content-Type",   "value": "application/wasm" },
-        { "key": "Content-Encoding", "value": "br" }
+        { "key": "Content-Type",    "value": "application/wasm" },
+        { "key": "Content-Encoding","value": "br" }
       ]
     }
   ]
