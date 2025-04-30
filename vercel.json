@@ -1,37 +1,35 @@
 {
   "version": 2,
-  "rewrites": [
-    {
-      "source": "/((?!Builds/).*)",
-      "destination": "/Builds/index.html"
-    }
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/Builds/index.html" }
   ],
   "headers": [
     {
-      "source": "/Builds/Build/(.+\\.data\\.br)$",
-      "headers": [
-        { "key": "Content-Type",    "value": "application/octet-stream" },
-        { "key": "Content-Encoding","value": "br" }
-      ]
-    },
-    {
-      "source": "/Builds/Build/(.+\\.framework\\.js\\.br)$",
-      "headers": [
-        { "key": "Content-Type",    "value": "application/javascript" },
-        { "key": "Content-Encoding","value": "br" }
-      ]
-    },
-    {
-      "source": "/Builds/Build/(.+\\.wasm\\.br)$",
-      "headers": [
-        { "key": "Content-Type",    "value": "application/wasm" },
-        { "key": "Content-Encoding","value": "br" }
-      ]
-    },
-    {
-      "source": "/Builds/Build/(.+\\.js)$",
+      "source": "/Builds/Build/(.*\\.js)$",
       "headers": [
         { "key": "Content-Type", "value": "application/javascript" }
+      ]
+    },
+    {
+      "source": "/Builds/Build/(.*\\.data\\.br)$",
+      "headers": [
+        { "key": "Content-Type", "value": "application/octet-stream" },
+        { "key": "Content-Encoding", "value": "br" }
+      ]
+    },
+    {
+      "source": "/Builds/Build/(.*\\.wasm\\.br)$",
+      "headers": [
+        { "key": "Content-Type", "value": "application/wasm" },
+        { "key": "Content-Encoding", "value": "br" }
+      ]
+    },
+    {
+      "source": "/Builds/Build/(.*\\.framework\\.js\\.br)$",
+      "headers": [
+        { "key": "Content-Type", "value": "application/javascript" },
+        { "key": "Content-Encoding", "value": "br" }
       ]
     }
   ]

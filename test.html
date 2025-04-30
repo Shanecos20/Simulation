@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebGL Test</title>
+</head>
+<body>
+    <h1>WebGL Asset Test</h1>
+    <p>Testing loader.js access:</p>
+    <script>
+        fetch('Builds/Build/Builds.loader.js')
+            .then(response => {
+                if (response.ok) {
+                    document.write('<p style="color:green">✓ Loader.js is accessible</p>');
+                } else {
+                    document.write('<p style="color:red">✗ Loader.js returned status: ' + response.status + '</p>');
+                }
+                return response.text();
+            })
+            .then(text => {
+                if (text.includes('<!DOCTYPE html>')) {
+                    document.write('<p style="color:red">✗ Loader.js contains HTML instead of JavaScript</p>');
+                } else {
+                    document.write('<p style="color:green">✓ Loader.js contains JavaScript code</p>');
+                }
+            })
+            .catch(error => {
+                document.write('<p style="color:red">✗ Error accessing loader.js: ' + error + '</p>');
+            });
+    </script>
+</body>
+</html> 
