@@ -2,6 +2,14 @@
   "version": 2,
   "routes": [
     {
+      "src": "/Builds/Build/Builds.loader.js",
+      "dest": "/Builds/Build/Builds.loader.js",
+      "headers": {
+        "Content-Type": "application/javascript",
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
       "src": "/Builds/Build/(.*\\.data\\.br)",
       "dest": "/Builds/Build/$1",
       "headers": {
