@@ -27,6 +27,12 @@
         { "key": "Content-Type",    "value": "application/wasm" },
         { "key": "Content-Encoding","value": "br" }
       ]
+    },
+    {
+      "source": "/Builds/Build/(.+\\.js)$",
+      "headers": [
+        { "key": "Content-Type", "value": "application/javascript" }
+      ]
     }
   ]
 }
