@@ -45,6 +45,13 @@
       }
     },
     {
+      "src": "/Build/(.*)",
+      "dest": "/Builds/Build/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
       "src": "/Builds/Build/(.*)",
       "dest": "/Builds/Build/$1",
       "headers": {
@@ -59,11 +66,29 @@
       }
     },
     {
+      "src": "/StreamingAssets/(.*)",
+      "dest": "/Builds/StreamingAssets/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
       "src": "/Builds/TemplateData/(.*)",
       "dest": "/Builds/TemplateData/$1",
       "headers": {
         "Cache-Control": "public, max-age=31536000, immutable"
       }
+    },
+    {
+      "src": "/TemplateData/(.*)",
+      "dest": "/Builds/TemplateData/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
     },
     {
       "src": "/test.html",

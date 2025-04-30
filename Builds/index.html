@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity Web Player | Hive Simulator</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
+    <title>Hive app simulator</title>
+    <link rel="shortcut icon" href="/TemplateData/favicon.ico">
+    <link rel="stylesheet" href="/TemplateData/style.css">
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
@@ -51,14 +51,14 @@
         updateBannerVisibility();
       }
 
-      var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Builds.loader.js";
+      var buildUrl = "/Build";
+      var loaderUrl = "/Builds/Build/Builds.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/Builds.data.br",
-        frameworkUrl: buildUrl + "/Builds.framework.js.br",
-        codeUrl: buildUrl + "/Builds.wasm.br",
-        streamingAssetsUrl: "StreamingAssets",
+        dataUrl: "/Builds/Build/Builds.data.br",
+        frameworkUrl: "/Builds/Build/Builds.framework.js.br",
+        codeUrl: "/Builds/Build/Builds.wasm.br",
+        streamingAssetsUrl: "/StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Hive Simulator",
         productVersion: "0.1.0",
