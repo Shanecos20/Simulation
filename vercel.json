@@ -2,35 +2,76 @@
   "version": 2,
   "routes": [
     {
-      "src": "/Builds/Build/(.*\\.js)$",
-      "headers": { "Content-Type": "application/javascript" },
-      "continue": true
-    },
-    {
-      "src": "/Builds/Build/(.*\\.data\\.br)$",
-      "headers": { 
+      "src": "/Builds/Build/(.*\\.data\\.br)",
+      "dest": "/Builds/Build/$1",
+      "headers": {
         "Content-Type": "application/octet-stream",
-        "Content-Encoding": "br"
-      },
-      "continue": true
+        "Content-Encoding": "br",
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
     },
     {
-      "src": "/Builds/Build/(.*\\.wasm\\.br)$",
-      "headers": { 
+      "src": "/Builds/Build/(.*\\.wasm\\.br)",
+      "dest": "/Builds/Build/$1",
+      "headers": {
         "Content-Type": "application/wasm",
-        "Content-Encoding": "br"
-      },
-      "continue": true
+        "Content-Encoding": "br",
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
     },
     {
-      "src": "/Builds/Build/(.*\\.framework\\.js\\.br)$",
-      "headers": { 
+      "src": "/Builds/Build/(.*\\.framework\\.js\\.br)",
+      "dest": "/Builds/Build/$1",
+      "headers": {
         "Content-Type": "application/javascript",
-        "Content-Encoding": "br"
-      },
-      "continue": true
+        "Content-Encoding": "br",
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
     },
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/Builds/index.html" }
+    {
+      "src": "/Builds/Build/(.*\\.js)",
+      "dest": "/Builds/Build/$1",
+      "headers": {
+        "Content-Type": "application/javascript",
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "src": "/Builds/Build/(.*)",
+      "dest": "/Builds/Build/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "src": "/Builds/StreamingAssets/(.*)",
+      "dest": "/Builds/StreamingAssets/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "src": "/Builds/TemplateData/(.*)",
+      "dest": "/Builds/TemplateData/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "src": "/test.html",
+      "dest": "/test.html"
+    },
+    {
+      "src": "/test-files.html",
+      "dest": "/test-files.html"
+    },
+    {
+      "src": "/Builds/index.html",
+      "dest": "/Builds/index.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/Builds/index.html"
+    }
   ]
 }

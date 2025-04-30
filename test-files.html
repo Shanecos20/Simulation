@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebGL Files Test</title>
+    <style>
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>WebGL Files Access Test</h1>
+    <div id="results"></div>
+
+    <script>
+        // Files to test
+        const filesToTest = [
+            'Builds/Build/Builds.loader.js',
+            'Builds/Build/Builds.data.br',
+            'Builds/Build/Builds.framework.js.br',
+            'Builds/Build/Builds.wasm.br'
+        ];
+
+        const resultsDiv = document.getElementById('results');
+
+        // Function to test file access
+        async function testFile(url) {
+            try {
+                const response = await fetch(url, { method: 'HEAD' });
+                
+                if (response.ok) {
+                    const contentType = response.headers.get('Content-Type');
+                    const contentEncoding = response.headers.get('Content-Encoding');
+                    
+                    return {
+                        success: true,
+                        url,
+                        status: response.status,
+                        contentType,
+                        contentEncoding
+                    };
+                } else {
+                    return {
+                        success: false,
+                        url,
+                        status: response.status,
+                        error: `HTTP ${response.status} ${response.statusText}`
+                    };
+                }
+            } catch (error) {
+                return {
+                    success: false,
+                    url,
+                    error: error.message
+                };
+            }
+        }
+
+        // Run tests
+        Promise.all(filesToTest.map(testFile))
+            .then(results => {
+                results.forEach(result => {
+                    const div = document.createElement('div');
+                    if (result.success) {
+                        div.className = 'success';
+                        div.innerHTML = `✅ ${result.url}: OK (${result.status}) - Content-Type: ${result.contentType || 'not set'}, Content-Encoding: ${result.contentEncoding || 'not set'}`;
+                    } else {
+                        div.className = 'error';
+                        div.innerHTML = `❌ ${result.url}: ${result.error}`;
+                    }
+                    resultsDiv.appendChild(div);
+                });
+            });
+    </script>
+</body>
+</html> 
